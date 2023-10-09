@@ -133,9 +133,9 @@ let onlineOrder = handelAsyncError(async (req, res, next) => {
     }
     //   delete cart
     await cartModel.findByIdAndDelete(cart._id);
-    res.json({ message: "success", order });
+    return res.json({ message: "success", order });
   } else {
-    console.log(`Unhandled event type ${event.type}`);
+    return next(new AppError("error payment", 400));
   }
 });
 
