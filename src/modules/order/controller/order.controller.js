@@ -80,7 +80,7 @@ let createCheckOutOrder = handelAsyncError(async (req, res, next) => {
     success_url,
     cancel_url,
     customer_email: req.user.email,
-    client_reference_id: cart._id,
+    client_reference_id: req.params.id,
     metadata: req.body,
   });
   res.json({ message: "success", session });
