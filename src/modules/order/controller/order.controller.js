@@ -61,6 +61,8 @@ let createCheckOutOrder = handelAsyncError(async (req, res, next) => {
   let cart = await cartModel.findById(req.params.id);
   if (!cart) return next(new AppError("cart not found", 404));
   //   create checkOut
+  let success_url = `${req.protocol}://${req.get("host")}/allOrder`;
+  let cancel_url = `${req.protocol}://${req.get("host")}/cart`;
   let session = await stripe.checkout.sessions.create({
     line_items: [
       {
@@ -75,8 +77,8 @@ let createCheckOutOrder = handelAsyncError(async (req, res, next) => {
       },
     ],
     mode: "payment",
-    success_url: `${req.protocol}://${req.get("host")}/allOrder`,
-    cancel_url: `${req.protocol}://${req.get("host")}/cart`,
+    success_url,
+    cancel_url,
     customer_email: req.user.email,
     client_reference_id: cart._id,
     metadata: req.body,
@@ -89,7 +91,11 @@ let onlineOrder = handelAsyncError(async (req, res, next) => {
   const sig = req.headers["stripe-signature"].toString();
   let event;
   try {
-    event = stripe.webhooks.constructEvent(req.body, sig, endpointSecret);
+    event = stripe.webhooks.constructEvent(
+      req.body,
+      sig,
+      "whsec_mF0ApHWVtM0XQsagxpxWigYKsp1Hc1IK"
+    );
   } catch (err) {
     return next(new AppError(err.message, 400));
   }
