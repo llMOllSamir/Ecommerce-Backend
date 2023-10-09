@@ -1,15 +1,17 @@
 import { config } from "dotenv";
-import path from "path";
-config({ path: path.resolve("config/.env") });
+config({});
 import express from "express";
 import initApp from "./src/utils/initApp.js";
 import connection from "./DB/connection.js";
 import morgan from "morgan";
 import cors from "cors";
+import { onlineOrder } from "./src/modules/order/controller/order.controller.js";
 /*======================
 .....E-Commerce App......
 ========================*/
 let app = express();
+// online payment 
+app.post("/webhook", express.raw({ type: "application/json" }), onlineOrder);
 /*== handel buffer  ==*/
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

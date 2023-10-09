@@ -5,12 +5,14 @@ import AppError from "../../../utils/services/appError.js";
 import cartModel from "./../../../../DB/models/cart.model.js";
 import productModel from "./../../../../DB/models/product.model.js";
 import Stripe from "stripe";
+import userModel from "../../../../DB/models/user.model.js";
 const stripe = new Stripe(
   "sk_test_51Nz42NAt85p8dhi11gcjbysd4OlKc8GqDD9Ix4899Dc6tqoHNvNSUj4GUbNMCkHqaLIkkawBJqjHwPFyLUX4N0Ak00kuevTLda"
 );
 
 const nanoid = customAlphabet("123456789", 10);
 
+// create cash order
 let createCashOrder = handelAsyncError(async (req, res, next) => {
   // get cart with id
   let cart = await cartModel.findById(req.params.id);
@@ -39,6 +41,7 @@ let createCashOrder = handelAsyncError(async (req, res, next) => {
   res.json({ message: "success", order });
 });
 
+// get user order
 let getUserOrders = handelAsyncError(async (req, res, next) => {
   let allOrders = await orderModel
     .find({ user: req.user._id })
@@ -46,11 +49,13 @@ let getUserOrders = handelAsyncError(async (req, res, next) => {
   res.json({ message: "success", allOrders });
 });
 
+// get all orders
 let getAllOrders = handelAsyncError(async (req, res, next) => {
   let allOrders = await orderModel.find().populate("cartItems.product");
   res.json({ message: "success", allOrders });
 });
 
+// create CheckOut Order
 let createCheckOutOrder = handelAsyncError(async (req, res, next) => {
   // get cart with id
   let cart = await cartModel.findById(req.params.id);
@@ -70,13 +75,68 @@ let createCheckOutOrder = handelAsyncError(async (req, res, next) => {
       },
     ],
     mode: "payment",
-    success_url: "https://mohamed-elshami.vercel.app/",
-    cancel_url: "https://e-commerce-gray-alpha.vercel.app/",
+    success_url: `${req.protocol}://${req.get("host")}/allOrder`,
+    cancel_url: `${req.protocol}://${req.get("host")}/cart`,
     customer_email: req.user.email,
     client_reference_id: cart._id,
-    metadata: req.body.shippingAddress,
+    metadata: req.body,
   });
   res.json({ message: "success", session });
 });
 
-export { createCashOrder, getUserOrders, getAllOrders, createCheckOutOrder };
+//online Order confirm
+let onlineOrder = handelAsyncError(async (req, res, next) => {
+  const sig = req.headers["stripe-signature"].toString();
+  let event;
+  try {
+    event = stripe.webhooks.constructEvent(req.body, sig, endpointSecret);
+  } catch (err) {
+    return next(new AppError(err.message, 400));
+  }
+  // Handle the event
+  if (event.type == "checkout.session.completed") {
+    const checkoutSessionCompleted = event.data.object;
+    // get cart with id
+    let cart = await cartModel.findById(
+      checkoutSessionCompleted.client_reference_id
+    );
+    if (!cart) return next(new AppError("cart not found", 404));
+    let user = await userModel.findOne({
+      email: checkoutSessionCompleted.customer_email,
+    });
+    // create order
+    let order = new orderModel({
+      user: user._id,
+      cartItems: cart.cartItems,
+      shippingAddress: checkoutSessionCompleted.metadata.shippingAddress,
+      totalPrice: cart.tPAD,
+      paymentMethod: "card",
+      isPaid: true,
+      orderId: nanoid(8),
+    });
+    await order.save();
+    //  update product
+    if (order) {
+      let option = cart.cartItems.map((item) => ({
+        updateOne: {
+          filter: { _id: item.product },
+          update: { $inc: { sold: item.quantity, quantity: -item.quantity } },
+        },
+      }));
+      await productModel.bulkWrite(option);
+    }
+    //   delete cart
+    await cartModel.findByIdAndDelete(cart._id);
+    res.json({ message: "success", order });
+  } else {
+    console.log(`Unhandled event type ${event.type}`);
+  }
+});
+
+export {
+  createCashOrder,
+  getUserOrders,
+  getAllOrders,
+  createCheckOutOrder,
+  onlineOrder,
+};

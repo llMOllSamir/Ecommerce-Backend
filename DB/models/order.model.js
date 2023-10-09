@@ -21,7 +21,7 @@ let orderSchema = new Schema(
     ],
     paymentMethod: {
       type: String,
-      enum: ["cash", "online"],
+      enum: ["cash", "card"],
       default: "cash",
     },
     isPaid: {
