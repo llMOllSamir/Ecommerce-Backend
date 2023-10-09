@@ -354,7 +354,7 @@ export let emailTemplate = (token) => {
                                                               <table border="0" cellpadding="0" cellspacing="0">
                                                                   <tbody>
                                                                       <tr>
-                                                                          <td> <a href="http://localhost:4000/api/v1/auth/confirmEmail/${token}" target="_blank">Verify</a> </td>
+                                                                          <td> <a href="https://elshami-ecommerce.onrender.com/api/v1/auth/confirmEmail/${token}" target="_blank">Verify</a> </td>
                                                                       </tr>
                                                                   </tbody>
                                                               </table>

@@ -1,0 +1,1363 @@
+{
+	"info": {
+		"_postman_id": "f7246301-b4bc-45bc-8eb3-a63a4cae5913",
+		"name": "Ecommerce",
+		"description": "**This is Backend App for Ecommerce Project using Node.js enviroment**",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "27980593"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "get all users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/users"
+					},
+					"response": []
+				},
+				{
+					"name": "add user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Mohamed\",\r\n    \"email\": \"mahmod@mohamed.com\",\r\n    \"password\": \"#Mohamed2017\",\r\n    \"rePassword\": \"#Mohamed2017\",\r\n    \"role\":\"admin\",\r\n    \"age\": 29,\r\n    \"phone\": \"01280025507\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/users"
+					},
+					"response": []
+				},
+				{
+					"name": "delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/users/651a1c06a1883746c08ccaf4"
+					},
+					"response": []
+				},
+				{
+					"name": "update user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"mohamed\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/users/651839b80fd0904acc97d454"
+					},
+					"response": []
+				},
+				{
+					"name": "Block user",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTFiNzA5MmNkMjQ2MWM1YTExOTJhNmQiLCJuYW1lIjoiTW9oYW1lZCIsImltYWdlIjoiIiwicm9sZSI6InVzZXIiLCJpYXQiOjE2OTYzMDA1NzR9.Qm0oew3cJSIyY3IfSnGv9YI0EbAInVFpVycYeihNSCE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"mohamed\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/users/651839b80fd0904acc97d454"
+					},
+					"response": []
+				},
+				{
+					"name": "change password",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"mohamed@mohamed.com\",\r\n    \"password\":\"#Mohamed2017\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://elshami-ecommerce.onrender.com/v1/users/changePassword"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "sign up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Mohamed Samir\",\r\n    \"email\": \"mohamed@gmail.com\",\r\n    \"password\": \"#Mohamed2017\",\r\n    \"rePassword\": \"#Mohamed2017\",\r\n    \"age\": 29,\r\n    \"phone\": \"01007073261\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/auth/signup"
+					},
+					"response": []
+				},
+				{
+					"name": "sign in",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@admin.com\",\r\n    \"password\": \"#admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/auth/signin"
+					},
+					"response": []
+				},
+				{
+					"name": "update user",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTFiNzA5MmNkMjQ2MWM1YTExOTJhNmQiLCJuYW1lIjoiTW9oYW1lZCBTYW1pciIsImltYWdlIjoiIiwicm9sZSI6InVzZXIiLCJpYXQiOjE2OTYyOTk3MTB9.8xRzqXo8Q7ZEGyzPuUT5L5LKlggngClQCqKIKOMaIlI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Mohamed\",\r\n    \"age\":35\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/auth/updateData"
+					},
+					"response": []
+				},
+				{
+					"name": "forgot Password",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@admin.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/auth/forgotPassword"
+					},
+					"response": []
+				},
+				{
+					"name": "reset Password",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@admin.com\",\r\n    \"resetCode\": \"6VV8gy\",\r\n    \"password\": \"#admin\",\r\n    \"rePassword\": \"#admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/auth/resetPassword"
+					},
+					"response": []
+				},
+				{
+					"name": "update password",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTFiNzA5MmNkMjQ2MWM1YTExOTJhNmQiLCJuYW1lIjoiTW9oYW1lZCBTYW1pciIsImltYWdlIjoiIiwicm9sZSI6InVzZXIiLCJpYXQiOjE2OTYyOTkxNTR9.8MoAC1QcexqT2hUtuBELbh3uUdtGQSmAvgvJOQ49MSs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"currentPassword\": \"#Mohamed2017\",\r\n    \"password\": \"#Mohamed2017\",\r\n    \"rePassword\": \"#Mohamed2017\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/auth/updatePassword"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "category",
+			"item": [
+				{
+					"name": "all categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://elshami-ecommerce.onrender.com/api/v1/categories?page=1",
+							"protocol": "https",
+							"host": [
+								"elshami-ecommerce",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"categories"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get category with subcategories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/categories/6505d294d02497ece92c37da/subCategories"
+					},
+					"response": []
+				},
+				{
+					"name": "add Category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Electronics",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Lenovo/OneDrive/Desktop/images/1681511121316.png"
+								}
+							]
+						},
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/categories"
+					},
+					"response": []
+				},
+				{
+					"name": "update category",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Cinema Mix",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/D:/c40/Front-End/assignments/React/portfolio/src/images/Yammy.png"
+								}
+							]
+						},
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/categories/65047249811db1009ec4db74"
+					},
+					"response": []
+				},
+				{
+					"name": "delete category",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/categories/65047470b3c8ecb01dad7ab1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "subCategory",
+			"item": [
+				{
+					"name": "all subCategory",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/subCategories"
+					},
+					"response": []
+				},
+				{
+					"name": "add subCategory",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Men's Clothing",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "6505d294d02497ece92c37da",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Lenovo/OneDrive/Desktop/images/products/1680400287765-2.jpeg"
+								}
+							]
+						},
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/subCategories"
+					},
+					"response": []
+				},
+				{
+					"name": "update subCategory",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Music\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/subCategories/64f1d5cbc338403ddcb4091a"
+					},
+					"response": []
+				},
+				{
+					"name": "delete subCategory",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/subCategories/65089ed9a95168487ded5216"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "brands",
+			"item": [
+				{
+					"name": "all brands",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:4000/api/v1/brands"
+					},
+					"response": []
+				},
+				{
+					"name": "add brands",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTE4MzliODBmZDA5MDRhY2M5N2Q0NTQiLCJuYW1lIjoibW9oYW1lZCIsImltYWdlIjoiIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk2MjE5ODQ4fQ.4-o9virhnlWY2qhCdjnFnez1VtVL3eUef333CbIfnbw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Oxiaa",
+									"type": "text"
+								},
+								{
+									"key": "logo",
+									"type": "file",
+									"src": [],
+									"disabled": true
+								}
+							]
+						},
+						"url": "http://localhost:4000/api/v1/brands"
+					},
+					"response": []
+				},
+				{
+					"name": "update brands",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"OXI\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:4000/api/v1/brands/64f248aada9f860c54cfafd2"
+					},
+					"response": []
+				},
+				{
+					"name": "delete brands",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:4000/api/v1/brands/651a42d8ca7241221433467f"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "Get All Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/products"
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/products/6516bd1bd870b2c0087542b9"
+					},
+					"response": []
+				},
+				{
+					"name": "add Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "NSW Everyday Essentials Socks",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Socks are highly comfort, stretchable and will manage moisture\\nRibbed elasticated mouths that ensure snug fitting\\nElasticated leg band which ensures easy wearability\\nCarefully stitched to lend a neat finish\\nThick terry sole provides comfort and impact absorptiona",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "150",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "1079",
+									"type": "text"
+								},
+								{
+									"key": "imageCover",
+									"type": "file",
+									"src": "/C:/Users/Lenovo/OneDrive/Desktop/images/products/1680396038346-1.jpeg"
+								},
+								{
+									"key": "images",
+									"type": "file",
+									"src": [
+										"/C:/Users/Lenovo/OneDrive/Desktop/images/products/1680396038346-1.jpeg",
+										"/C:/Users/Lenovo/OneDrive/Desktop/images/products/1680396038347-2.jpeg",
+										"/C:/Users/Lenovo/OneDrive/Desktop/images/products/1680396038347-3.jpeg",
+										"/C:/Users/Lenovo/OneDrive/Desktop/images/products/1680396038348-4.jpeg"
+									]
+								},
+								{
+									"key": "category",
+									"value": "6505d294d02497ece92c37da",
+									"type": "text"
+								},
+								{
+									"key": "subCategory",
+									"value": "6517278e5479cf02dc3de00b",
+									"type": "text"
+								},
+								{
+									"key": "brand",
+									"value": "6515ada711f85a614a679b73",
+									"type": "text"
+								},
+								{
+									"key": "discount",
+									"value": "30",
+									"type": "text"
+								},
+								{
+									"key": "ratingsAverage",
+									"value": "4.2",
+									"type": "text"
+								}
+							]
+						},
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/products"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Woman Standart Fit Knitted Cardigan",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "description",
+									"value": "Material\\tPolyester Blend\\nColour Name\\tMulticolour\\nDepartment\\tWomen",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "quantity",
+									"value": "220",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "price",
+									"value": "149",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "imageCover",
+									"type": "file",
+									"src": "/C:/Users/Lenovo/OneDrive/Desktop/images/products/1680396593909-1.jpeg"
+								},
+								{
+									"key": "images",
+									"type": "file",
+									"src": [
+										"/C:/Users/Lenovo/OneDrive/Desktop/images/products/1680396593909-1.jpeg",
+										"/C:/Users/Lenovo/OneDrive/Desktop/images/products/1680396593909-2.jpeg",
+										"/C:/Users/Lenovo/OneDrive/Desktop/images/products/1680396593909-3.jpeg",
+										"/C:/Users/Lenovo/OneDrive/Desktop/images/products/1680396593910-4.jpeg"
+									]
+								},
+								{
+									"key": "category",
+									"value": "6505d2a9d02497ece92c37dd",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "subCategory",
+									"value": "6505f508dac626a7fa616f89",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "brand",
+									"value": "6515adbb11f85a614a679b79",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "discount",
+									"value": "0",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/products/65172ae5f4e8f551148d6c3c"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Woman Shawl",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Material\\tPolyester Blend\\nColour Name\\tMulticolour\\nDepartment\\tWomen",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "220",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "149",
+									"type": "text"
+								},
+								{
+									"key": "imageCover",
+									"type": "file",
+									"src": "/C:/Users/Lenovo/OneDrive/Desktop/images/products/1680403397482-1.jpeg"
+								},
+								{
+									"key": "images",
+									"type": "file",
+									"src": [
+										"/C:/Users/Lenovo/OneDrive/Desktop/images/products/1680403397482-1.jpeg",
+										"/C:/Users/Lenovo/OneDrive/Desktop/images/products/1680403397482-2.jpeg",
+										"/C:/Users/Lenovo/OneDrive/Desktop/images/products/1680403397483-3.jpeg"
+									]
+								},
+								{
+									"key": "category",
+									"value": "6505d2a9d02497ece92c37dd",
+									"type": "text"
+								},
+								{
+									"key": "subCategory",
+									"value": "6505f508dac626a7fa616f89",
+									"type": "text"
+								},
+								{
+									"key": "brand",
+									"value": "6515adbb11f85a614a679b79",
+									"type": "text"
+								},
+								{
+									"key": "discount",
+									"value": "10",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/products/6516c5e15b5255dc29002345"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "cupon",
+			"item": [
+				{
+					"name": "create coupon",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTFjZjc5NDAyNjgyNDYwOWNjY2Y4ODUiLCJuYW1lIjoiTW9oYW1lZCBTYW1pciIsImltYWdlIjoiIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk2NTc4MTc4fQ.Mn6ZLmo1owVyvFwKqTMRbNXRAPzrOm_uviwN6Rhia6A",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"coupon\":\"zamalek\",\r\n    \"discount\":20,\r\n    \"expiries\":\"2024/4/25\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/coupon"
+					},
+					"response": []
+				},
+				{
+					"name": "get all coupons",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTFjZjc5NDAyNjgyNDYwOWNjY2Y4ODUiLCJuYW1lIjoiTW9oYW1lZCBTYW1pciIsImltYWdlIjoiIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk2NTc4MTc4fQ.Mn6ZLmo1owVyvFwKqTMRbNXRAPzrOm_uviwN6Rhia6A",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/coupon"
+					},
+					"response": []
+				},
+				{
+					"name": "apply coupon",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTFjZjc5NDAyNjgyNDYwOWNjY2Y4ODUiLCJuYW1lIjoiTW9oYW1lZCBTYW1pciIsImltYWdlIjoiIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk2Nzk1NTY5fQ.JNNcZe-lH4jXtTcm4H0aPgrfXc6JyeemAAsF759HCHc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"coupon\": \"zamalek\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/coupon"
+					},
+					"response": []
+				},
+				{
+					"name": "delete coupon",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTFjZjc5NDAyNjgyNDYwOWNjY2Y4ODUiLCJuYW1lIjoiTW9oYW1lZCBTYW1pciIsImltYWdlIjoiIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk2NTc4MTc4fQ.Mn6ZLmo1owVyvFwKqTMRbNXRAPzrOm_uviwN6Rhia6A",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/coupon/651fc40acee15f4c46c61fd2"
+					},
+					"response": []
+				},
+				{
+					"name": "update coupon",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTFjZjc5NDAyNjgyNDYwOWNjY2Y4ODUiLCJuYW1lIjoiTW9oYW1lZCBTYW1pciIsImltYWdlIjoiIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk2NTc4MTc4fQ.Mn6ZLmo1owVyvFwKqTMRbNXRAPzrOm_uviwN6Rhia6A",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"coupon\":\"mohamed\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/coupon/651fc7a53ad7686a4460ba43"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "reviews",
+			"item": [
+				{
+					"name": "get all reviews",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/reviews"
+					},
+					"response": []
+				},
+				{
+					"name": "get one review",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/reviews/651cf0352d08116bdf16ea8b"
+					},
+					"response": []
+				},
+				{
+					"name": "add Review",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTFjZjhjMmE4YTBkMTEzZmY2Y2ZiMGEiLCJuYW1lIjoiTW9oYW1lZCBTYW1pciIsImltYWdlIjoiIiwicm9sZSI6InVzZXIiLCJpYXQiOjE2OTY1MjkyMTR9.4Fx-Rb8Y3taDbkZHHLy_8S47ysNpulGxJWzMfA04Svk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"comment\":\"nice one i like it \",\r\n    \"product\":\"651724402322f302e66b425d\",\r\n    \"rating\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/reviews"
+					},
+					"response": []
+				},
+				{
+					"name": "delete review",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTFjZjc5NDAyNjgyNDYwOWNjY2Y4ODUiLCJuYW1lIjoiTW9oYW1lZCBTYW1pciIsImltYWdlIjoiIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk2Mzk5OTQwfQ.bBEX5-TB4qQFc6k8_E345aHpMshJKzEE3zTtp0lEXXg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"comment\":\"nice one i like it \",\r\n    \"product\":\"651724402322f302e66b425d\",\r\n    \"rating\":3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/reviews/651ef170fa2b5c8eaba50a9a"
+					},
+					"response": []
+				},
+				{
+					"name": "update review",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTFjZjhjMmE4YTBkMTEzZmY2Y2ZiMGEiLCJuYW1lIjoiTW9oYW1lZCBTYW1pciIsImltYWdlIjoiIiwicm9sZSI6InVzZXIiLCJpYXQiOjE2OTY1MjkyMTR9.4Fx-Rb8Y3taDbkZHHLy_8S47ysNpulGxJWzMfA04Svk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"comment\":\"nice one i like it \",\r\n    \"rating\":5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/reviews/651efb56ff82942bfa23b625"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "cart",
+			"item": [
+				{
+					"name": "add to Cart",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTFjZjc5NDAyNjgyNDYwOWNjY2Y4ODUiLCJuYW1lIjoiTW9oYW1lZCBTYW1pciIsImltYWdlIjoiIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk2Nzk1NTY5fQ.JNNcZe-lH4jXtTcm4H0aPgrfXc6JyeemAAsF759HCHc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"product\": \"65171de18510464d1e9f87ef\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/cart"
+					},
+					"response": []
+				},
+				{
+					"name": "get user cart",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTFjZjc5NDAyNjgyNDYwOWNjY2Y4ODUiLCJuYW1lIjoiTW9oYW1lZCBTYW1pciIsImltYWdlIjoiIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk2Nzk1NTY5fQ.JNNcZe-lH4jXtTcm4H0aPgrfXc6JyeemAAsF759HCHc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/cart"
+					},
+					"response": []
+				},
+				{
+					"name": "delete cart",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTFjZjhjMmE4YTBkMTEzZmY2Y2ZiMGEiLCJuYW1lIjoiTW9oYW1lZCBTYW1pciIsImltYWdlIjoiIiwicm9sZSI6InNlbGxlciIsImlhdCI6MTY5NjU5NDU0Nn0.xhW3pUHklk2dGQyuAPrmLMnJ2LnL2ilMwuILfOl5RxY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/cart/65206030e45357e8f98a047d"
+					},
+					"response": []
+				},
+				{
+					"name": "remove cart product",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTFjZjhjMmE4YTBkMTEzZmY2Y2ZiMGEiLCJuYW1lIjoiTW9oYW1lZCBTYW1pciIsImltYWdlIjoiIiwicm9sZSI6InNlbGxlciIsImlhdCI6MTY5NjU5NDU0Nn0.xhW3pUHklk2dGQyuAPrmLMnJ2LnL2ilMwuILfOl5RxY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://elshami-ecommerce.onrender.comapi/v1/cart/652060ebe45357e8f98a053c"
+					},
+					"response": []
+				},
+				{
+					"name": "update cart product quantity",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTFjZjhjMmE4YTBkMTEzZmY2Y2ZiMGEiLCJuYW1lIjoiTW9oYW1lZCBTYW1pciIsImltYWdlIjoiIiwicm9sZSI6InNlbGxlciIsImlhdCI6MTY5NjU5NDU0Nn0.xhW3pUHklk2dGQyuAPrmLMnJ2LnL2ilMwuILfOl5RxY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"quantity\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/cart/652060f5e45357e8f98a054f"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "sing  up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Mohamed\",\r\n    \"email\": \"mohamed@mohamed.com\",\r\n    \"password\": \"#Mohamed2017\",\r\n    \"rePassword\": \"#Mohamed2017\",\r\n    \"age\": 29,\r\n    \"phone\": \"01280025507\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/auth/signup"
+					},
+					"response": []
+				},
+				{
+					"name": "sign in",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"mohamed@mohamed.com\",\r\n    \"password\": \"#Mohamed2017\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/auth/signin"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "wish list",
+			"item": [
+				{
+					"name": "add wish",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTFjZjhjMmE4YTBkMTEzZmY2Y2ZiMGEiLCJuYW1lIjoiTW9oYW1lZCBTYW1pciIsImltYWdlIjoiIiwicm9sZSI6InVzZXIiLCJpYXQiOjE2OTY1MzM3NDF9.bUu4inBvtsGysRH0zqNVE02pejQMmJM6oMXbvRN6yHA",
+								"type": "text"
+							}
+						],
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/wishList/651724402322f302e66b425d"
+					},
+					"response": []
+				},
+				{
+					"name": "delete wish",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTFjZjhjMmE4YTBkMTEzZmY2Y2ZiMGEiLCJuYW1lIjoiTW9oYW1lZCBTYW1pciIsImltYWdlIjoiIiwicm9sZSI6InVzZXIiLCJpYXQiOjE2OTY1MzM3NDF9.bUu4inBvtsGysRH0zqNVE02pejQMmJM6oMXbvRN6yHA",
+								"type": "text"
+							}
+						],
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/wishList/65171d038510464d1e9f87d0"
+					},
+					"response": []
+				},
+				{
+					"name": "get wish list for user",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTFjZjhjMmE4YTBkMTEzZmY2Y2ZiMGEiLCJuYW1lIjoiTW9oYW1lZCBTYW1pciIsImltYWdlIjoiIiwicm9sZSI6InVzZXIiLCJpYXQiOjE2OTY1MzM3NDF9.bUu4inBvtsGysRH0zqNVE02pejQMmJM6oMXbvRN6yHA",
+								"type": "text"
+							}
+						],
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/wishList"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "address",
+			"item": [
+				{
+					"name": "add address",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTFjZjhjMmE4YTBkMTEzZmY2Y2ZiMGEiLCJuYW1lIjoiTW9oYW1lZCBTYW1pciIsImltYWdlIjoiIiwicm9sZSI6InVzZXIiLCJpYXQiOjE2OTY1MzM3NDF9.bUu4inBvtsGysRH0zqNVE02pejQMmJM6oMXbvRN6yHA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"city\": \"alexandria\",\r\n    \"street\": \"alagamy\",\r\n    \"phone\": \"01280025507\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/address"
+					},
+					"response": []
+				},
+				{
+					"name": "delete adress",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTFjZjhjMmE4YTBkMTEzZmY2Y2ZiMGEiLCJuYW1lIjoiTW9oYW1lZCBTYW1pciIsImltYWdlIjoiIiwicm9sZSI6InVzZXIiLCJpYXQiOjE2OTY1MzM3NDF9.bUu4inBvtsGysRH0zqNVE02pejQMmJM6oMXbvRN6yHA",
+								"type": "text"
+							}
+						],
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/address/651f14ce77bf9b43c97e0de0"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "create cash order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTFjZjc5NDAyNjgyNDYwOWNjY2Y4ODUiLCJuYW1lIjoiTW9oYW1lZCBTYW1pciIsImltYWdlIjoiIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk2Nzk1NTY5fQ.JNNcZe-lH4jXtTcm4H0aPgrfXc6JyeemAAsF759HCHc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"shippingAddress\": {\r\n        \"city\": \"alex\",\r\n        \"street\": \"alagamy\",\r\n        \"phone\": \"01280025507\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/order/65231391095ec45ffb1701c4"
+					},
+					"response": []
+				},
+				{
+					"name": "checkout online",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTFjZjc5NDAyNjgyNDYwOWNjY2Y4ODUiLCJuYW1lIjoiTW9oYW1lZCBTYW1pciIsImltYWdlIjoiIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk2Nzk1NTY5fQ.JNNcZe-lH4jXtTcm4H0aPgrfXc6JyeemAAsF759HCHc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"city\": \"alex\",\r\n        \"street\": \"alagamy\",\r\n        \"phone\": \"01280025507\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/order/checkout-session/652343e6f4806eceb721ab22"
+					},
+					"response": []
+				},
+				{
+					"name": "get all orders",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTFjZjc5NDAyNjgyNDYwOWNjY2Y4ODUiLCJuYW1lIjoiTW9oYW1lZCBTYW1pciIsImltYWdlIjoiIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk2Nzk1NTY5fQ.JNNcZe-lH4jXtTcm4H0aPgrfXc6JyeemAAsF759HCHc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"city\": \"alex\",\r\n    \"street\": \"alagamy\",\r\n    \"phone\": \"01280025507\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/order"
+					},
+					"response": []
+				},
+				{
+					"name": "get user orders",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTFjZjc5NDAyNjgyNDYwOWNjY2Y4ODUiLCJuYW1lIjoiTW9oYW1lZCBTYW1pciIsImltYWdlIjoiIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjk2Nzk1NTY5fQ.JNNcZe-lH4jXtTcm4H0aPgrfXc6JyeemAAsF759HCHc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"city\": \"alex\",\r\n    \"street\": \"alagamy\",\r\n    \"phone\": \"01280025507\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://elshami-ecommerce.onrender.com/api/v1/order/user"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
